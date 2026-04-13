@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Built for HUB Appliances | ZYTROM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Utility */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      padding: 48px 0 64px;
+      text-align: center;
+      position: relative;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4A843, transparent);
+    }
+
+    .header-logos {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      color: #D4A843;
+    }
+    .prospect-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f5f5f5;
+      letter-spacing: 1px;
+    }
+    .prospect-logo .hub-gold {
+      color: #F4B30E;
+    }
+
+    .header h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .header h1 .gold {
+      color: #D4A843;
+    }
+    .header .subtitle {
+      font-size: 18px;
+      color: #a0a0a0;
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #D4A843;
+      border: 1px solid rgba(212, 168, 67, 0.3);
+      padding: 6px 18px;
+      border-radius: 100px;
+    }
+
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      padding: 48px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 16px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(212,168,67,0.25);
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #D4A843;
+      margin-bottom: 4px;
+    }
+    .stat-suffix {
+      font-size: 36px;
+      font-weight: 700;
+      color: #D4A843;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #a0a0a0;
+      font-weight: 400;
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ---- SECTION HEADINGS ---- */
+    .section-heading {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-heading .gold {
+      color: #D4A843;
+    }
+
+    /* ---- ACCORDION DELIVERABLES ---- */
+    .deliverables {
+      padding: 48px 0;
+    }
+
+    .accordion-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .accordion-item:hover {
+      border-color: rgba(212,168,67,0.2);
+    }
+    .accordion-item.active {
+      border-color: rgba(212,168,67,0.3);
+      box-shadow: 0 0 40px rgba(212,168,67,0.04);
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s ease;
+    }
+    .accordion-header:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .accordion-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(212,168,67,0.12);
+      color: #D4A843;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .accordion-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .accordion-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .accordion-icon::before,
+    .accordion-icon::after {
+      content: '';
+      position: absolute;
+      background: #a0a0a0;
+      transition: transform 0.3s ease;
+    }
+    .accordion-icon::before {
+      width: 14px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .accordion-icon::after {
+      width: 2px;
+      height: 14px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .accordion-item.active .accordion-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .accordion-body-inner {
+      padding: 0 28px 28px;
+    }
+
+    .accordion-body p {
+      color: #c8c8c8;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .accordion-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Gap list */
+    .gap-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+    .gap-list li {
+      padding: 14px 16px;
+      background: rgba(212,168,67,0.05);
+      border-left: 3px solid #D4A843;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #d8d8d8;
+      line-height: 1.6;
+    }
+    .gap-list li strong {
+      color: #E8C868;
+      font-weight: 600;
+    }
+
+    /* Angle cards */
+    .angle-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .angle-card:last-child {
+      margin-bottom: 0;
+    }
+    .angle-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #E8C868;
+      margin-bottom: 4px;
+    }
+    .angle-card .angle-hook {
+      font-size: 15px;
+      font-weight: 500;
+      font-style: italic;
+      color: #f5f5f5;
+      margin-bottom: 8px;
+    }
+    .angle-card p {
+      font-size: 14px;
+      color: #a0a0a0;
+      margin-bottom: 0;
+    }
+
+    /* Script blocks */
+    .script-block {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .script-block:last-child {
+      margin-bottom: 0;
+    }
+    .script-block h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #E8C868;
+      margin-bottom: 10px;
+    }
+    .script-block .script-preview {
+      font-size: 15px;
+      color: #d8d8d8;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* Landing page feature list */
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .feature-tag {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: rgba(212,168,67,0.1);
+      color: #E8C868;
+      border: 1px solid rgba(212,168,67,0.2);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: #D4A843;
+      color: #0a0a0f;
+    }
+    .btn-primary:hover {
+      background: #EDD98A;
+      box-shadow: 0 0 30px rgba(212,168,67,0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #D4A843;
+      border: 1px solid rgba(212,168,67,0.4);
+    }
+    .btn-outline:hover {
+      background: rgba(212,168,67,0.08);
+      border-color: #D4A843;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #707070;
+      margin-top: 8px;
+    }
+
+    /* VSL outline */
+    .vsl-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .vsl-step:last-child {
+      margin-bottom: 0;
+    }
+    .vsl-label {
+      flex-shrink: 0;
+      width: 90px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #D4A843;
+      padding-top: 2px;
+    }
+    .vsl-content {
+      font-size: 14px;
+      color: #c8c8c8;
+      line-height: 1.6;
+    }
+
+    /* ---- PROCESS SECTION ---- */
+    .process {
+      padding: 80px 0;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .process-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .process-card:hover {
+      border-color: rgba(212,168,67,0.25);
+      transform: translateY(-4px);
+    }
+    .process-step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(212,168,67,0.12);
+      color: #D4A843;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 auto 16px;
+    }
+    .process-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .process-card p {
+      font-size: 14px;
+      color: #a0a0a0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- CTA SECTION ---- */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 64px 40px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4A843, transparent);
+    }
+    .cta-card h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .cta-card .cta-sub {
+      font-size: 16px;
+      color: #a0a0a0;
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .cta-card .cta-note {
+      font-size: 14px;
+      color: #707070;
+      margin-top: 20px;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      padding: 48px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #D4A843;
+      margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: #707070;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .footer p {
+      font-size: 13px;
+      color: #505050;
+      margin-bottom: 6px;
+    }
+    .footer a {
+      color: #D4A843;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .section-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,67,0.4), transparent);
+      margin: 0 auto;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 640px) {
+      .header-logos {
+        flex-direction: row;
+        gap: 16px;
+      }
+      .logo-text {
+        font-size: 22px;
+        letter-spacing: 4px;
+      }
+      .prospect-logo {
+        font-size: 16px;
+      }
+      .accordion-header {
+        padding: 20px;
+      }
+      .accordion-body-inner {
+        padding: 0 20px 20px;
+      }
+      .accordion-title {
+        font-size: 16px;
+      }
+      .stat-number, .stat-suffix {
+        font-size: 28px;
+      }
+      .vsl-step {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .vsl-label {
+        width: auto;
+      }
+      .cta-card {
+        padding: 48px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-logos reveal">
+        <div class="logo-text">ZYTROM</div>
+        <div class="prospect-logo"><span class="hub-gold">HUB</span> Appliances</div>
+      </div>
+      <h1 class="reveal">Built Exclusively for <span class="gold">HUB Appliances</span></h1>
+      <p class="subtitle reveal">A complete marketing package created specifically for your business</p>
+      <span class="badge reveal">Prepared April 2026</span>
+    </div>
+  </header>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div>
+            <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+          </div>
+          <div class="stat-label">Sources Researched</div>
+        </div>
+        <div class="stat-card reveal">
+          <div>
+            <span class="stat-number" data-target="5">0</span>
+          </div>
+          <div class="stat-label">Marketing Gaps Found</div>
+        </div>
+        <div class="stat-card reveal">
+          <div>
+            <span class="stat-number" data-target="2">0</span>
+          </div>
+          <div class="stat-label">Live Pages Built</div>
+        </div>
+        <div class="stat-card reveal">
+          <div>
+            <span class="stat-number" data-target="10">0</span>
+          </div>
+          <div class="stat-label">Custom Outreach Emails</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="deliverables">
+    <div class="container">
+      <h2 class="section-heading reveal">What We <span class="gold">Built for You</span></h2>
+
+      <!-- Section 1: Research Snapshot -->
+      <div class="accordion-item reveal">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <div class="accordion-number">01</div>
+            <div class="accordion-title">Research Snapshot</div>
+          </div>
+          <div class="accordion-icon"></div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>HUB Appliances is a B2B appliance supplier based in Medley, FL, founded in 2024 by Tomas Faverola, Samuel Malave, and Wilmer Morales. You serve developers, general contractors, and property managers across Miami-Dade, Broward, Palm Beach, and Naples. Your positioning: "Appliances Without the Headaches. On time. On budget. No surprises."</p>
+            <p>We analyzed your website, Instagram presence, TikTok, Google Business profile, review sites, and public business listings. We also researched your competitive landscape in the South Florida B2B appliance market.</p>
+            <p>You have grown to a multi-million-dollar operation in under two years with your own warehouse and delivery fleet. That growth happened without any formal marketing system. Here is what is holding back the next level.</p>
+            <p style="font-weight: 600; color: #E8C868; margin-bottom: 12px;">5 Gaps We Found:</p>
+            <ol class="gap-list">
+              <li><strong>Gap 1: Zero Social Proof Online.</strong> No Google reviews, no testimonials on your website, no case studies, no client logos. B2B buyers making decisions on 50-300 unit orders need proof that the supplier can deliver. Without it, every prospect evaluates HUB on a promise alone.</li>
+              <li><strong>Gap 2: No Content or Thought Leadership.</strong> No blog, no buying guides, no comparison content. Developers searching for "appliance packages for multi-family developments" or "bulk appliance supplier South Florida" cannot find you. Competitors who publish this content capture the lead before HUB enters the conversation.</li>
+              <li><strong>Gap 3: No Paid Acquisition or Retargeting.</strong> No evidence of paid ads on Meta, Google, or LinkedIn. No retargeting for website visitors. B2B appliance deals can be $500K+ for large developments. One converted developer can generate recurring revenue across multiple projects. The ROI on paid acquisition is significant.</li>
+              <li><strong>Gap 4: No Lead Nurture for Long Sales Cycles.</strong> Only a basic newsletter signup. No lead magnet. No email drip sequence. No CRM pipeline. Developers visit the site 6 months before their project breaks ground. Without nurture, HUB captures zero information from early-stage prospects.</li>
+              <li><strong>Gap 5: No Visual Credibility.</strong> No photos of completed projects, warehouse, delivery fleet, or team. You claim to handle 300-unit developments with an in-house fleet, but the website shows none of it. Developers want to SEE the operation before trusting it with their project.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Campaign Angles -->
+      <div class="accordion-item reveal">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <div class="accordion-number">02</div>
+            <div class="accordion-title">Campaign Angles</div>
+          </div>
+          <div class="accordion-icon"></div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="angle-card">
+              <h4>Angle 1: The $40K Delay</h4>
+              <p class="angle-hook">"One Late Appliance Delivery Cost This Developer $40,000."</p>
+              <p>Lead with the financial consequence of unreliable suppliers. Every developer has this story. Position HUB as the company that controls the supply chain so delays never happen.</p>
+            </div>
+            <div class="angle-card">
+              <h4>Angle 2: The Invisible Partner</h4>
+              <p class="angle-hook">"The Best Appliance Supplier Is the One You Never Have to Think About."</p>
+              <p>Position HUB as the silent engine behind the project. No phone calls chasing updates. No scrambling for substitutions. The appliances just show up when they are supposed to.</p>
+            </div>
+            <div class="angle-card">
+              <h4>Angle 3: Single Source, Zero Excuses</h4>
+              <p class="angle-hook">"Stop Coordinating Between 4 Vendors for One Appliance Order."</p>
+              <p>Attack the fragmented supply chain problem. One warehouse. One fleet. One phone number. Every handoff eliminated is a risk eliminated.</p>
+            </div>
+            <div class="angle-card">
+              <h4>Angle 4: 300 Units, Zero Surprises</h4>
+              <p class="angle-hook">"We Outfitted a 300-Unit Development and Every Appliance Arrived on Schedule."</p>
+              <p>Proof of scale. When a developer trusts HUB with 300 units, they are trusting HUB with their project timeline, their investor relationships, and their reputation.</p>
+            </div>
+            <div class="angle-card">
+              <h4>Angle 5: The Builder's Appliance Partner</h4>
+              <p class="angle-hook">"Developers in South Florida Are Switching Appliance Suppliers. Here Is Why."</p>
+              <p>Trend narrative. The old model (PO, wait, hope) is broken. HUB was built by people who watched it break from the inside. Own the warehouse. Own the trucks. Own the outcome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Ad Script Concepts -->
+      <div class="accordion-item reveal">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <div class="accordion-number">03</div>
+            <div class="accordion-title">Ad Script Concepts</div>
+          </div>
+          <div class="accordion-icon"></div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="script-block">
+              <h4>Script 1: Direct Response</h4>
+              <p class="script-preview">Your appliance supplier just called. Three models are backordered. Replacements available in 10 days.</p>
+              <p class="script-preview">Your GC is asking what this means for the schedule. Your investor wants to know if the CO date is moving. Your PM is already calculating the cost of two more weeks of carrying costs.</p>
+              <p class="script-preview">HUB Appliances runs its own warehouse in Medley, FL. We deliver with our own fleet. We stage your entire order in advance so every unit is ready before your install date.</p>
+              <p class="script-preview">No third parties. No finger-pointing. No surprises. One call. 15 minutes. We will show you how simple this should be.</p>
+            </div>
+            <div class="script-block">
+              <h4>Script 2: Proof-Led</h4>
+              <p class="script-preview">We went from zero to multi-million-dollar B2B appliance supplier in under two years. Not because we had the lowest prices. Because we solved the one problem every developer in South Florida has: reliability.</p>
+              <p class="script-preview">Tomas, Samuel, and Wilmer founded HUB Appliances in 2024 after watching developers get burned by suppliers who could not keep a delivery date. They built a warehouse. They bought trucks. They hired a logistics team that treats every order like the project depends on it.</p>
+              <p class="script-preview">Today, HUB handles projects from 10 units to 300 across four South Florida counties. The developers who work with us do not call to check on their orders. They do not need to. That is the point.</p>
+            </div>
+            <div class="script-block">
+              <h4>Script 3: Educational</h4>
+              <p class="script-preview">Here is what most developers get wrong about appliance procurement. They treat it like a commodity purchase. Find the lowest price. Send the PO. Move on.</p>
+              <p class="script-preview">That works until the first delivery gets delayed. The truth: appliance procurement is a logistics problem, not a purchasing problem.</p>
+              <p class="script-preview">Three things to look for in a supplier: Do they control their own inventory? Do they deliver with their own fleet? Do they assign you a dedicated contact? If the answer to any of those is no, your project is one backorder away from a $20K delay.</p>
+              <p class="script-preview">HUB Appliances checks all three. Our warehouse. Our trucks. Your dedicated contact. Every time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Landing Page Preview -->
+      <div class="accordion-item reveal">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <div class="accordion-number">04</div>
+            <div class="accordion-title">Landing Page Preview</div>
+          </div>
+          <div class="accordion-icon"></div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>We built a complete high-converting landing page for HUB Appliances using your exact brand identity. Your black and gold color palette, Playfair Display and Open Sans typography, and professional B2B aesthetic. Every section is designed to convert developers and contractors into booked calls.</p>
+            <div class="feature-tags">
+              <span class="feature-tag">Hero Section</span>
+              <span class="feature-tag">Credibility Bar</span>
+              <span class="feature-tag">Problem Agitation</span>
+              <span class="feature-tag">Solution Showcase</span>
+              <span class="feature-tag">Social Proof</span>
+              <span class="feature-tag">Lead Magnet</span>
+              <span class="feature-tag">Service Tiers</span>
+              <span class="feature-tag">About / Authority</span>
+              <span class="feature-tag">FAQ Accordion</span>
+            </div>
+            <p>The page is live and ready to use. Built to convert B2B visitors into booked consultations.</p>
+            <div style="margin-top: 20px;">
+              <a href="LANDING_PAGE_URL" class="btn btn-outline" target="_blank" rel="noopener">View Live Page &rarr;</a>
+            </div>
+            <p class="small-note">This page is live on GitHub Pages and ready for use.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: VSL Outline -->
+      <div class="accordion-item reveal">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <div class="accordion-number">05</div>
+            <div class="accordion-title">VSL Outline</div>
+          </div>
+          <div class="accordion-icon"></div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="vsl-step">
+              <div class="vsl-label">Hook</div>
+              <div class="vsl-content">Construction site in South Florida. Time-lapse of a building going up. Cut to an empty kitchen. Text: "Everything is ready. Except the appliances." Developer on the phone: "They said 10 more days."</div>
+            </div>
+            <div class="vsl-step">
+              <div class="vsl-label">Problem</div>
+              <div class="vsl-content">Every developer in South Florida has this story. 18 months of planning. 14 trades coordinated. Then the appliance supplier misses the delivery. CO is delayed. Units sit empty. Investors are calling. Carrying costs climb $2,000 per day. The supplier blames the distributor. Nobody takes ownership.</div>
+            </div>
+            <div class="vsl-step">
+              <div class="vsl-label">Solution</div>
+              <div class="vsl-content">HUB Appliances runs its own warehouse in Medley, FL. Delivers with its own fleet. Stages your entire order before your install date. One team owns the process from order to installation. No handoffs. No third parties. No excuses.</div>
+            </div>
+            <div class="vsl-step">
+              <div class="vsl-label">Credibility</div>
+              <div class="vsl-content">Founded 2024. Multi-million-dollar B2B supplier in under two years. Three founders who saw the problem firsthand. Capacity from single orders to 300-unit developments. Service area: Miami-Dade, Broward, Palm Beach, Naples.</div>
+            </div>
+            <div class="vsl-step">
+              <div class="vsl-label">Offer</div>
+              <div class="vsl-content">Complete appliance packages with locked pricing and guaranteed delivery dates. One point of contact. One invoice. Whether your next project is 20 units or 200.</div>
+            </div>
+            <div class="vsl-step">
+              <div class="vsl-label">CTA</div>
+              <div class="vsl-content">Book a 15-minute call. We will review your next project, put together a package, and show you what "on time, on budget, no surprises" actually looks like.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-heading reveal">How We <span class="gold">Work</span></h2>
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <div class="process-step-number">1</div>
+          <h3>Diagnose</h3>
+          <p>We audit your current marketing, sales flow, and customer acquisition system to find the exact bottleneck.</p>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-step-number">2</div>
+          <h3>Design</h3>
+          <p>We build a custom strategy targeting the constraint. Offer positioning, messaging, ads, funnel, and conversion flow.</p>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-step-number">3</div>
+          <h3>Deploy</h3>
+          <p>We execute everything. You review and approve. We iterate until the system performs.</p>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-step-number">4</div>
+          <h3>Scale</h3>
+          <p>Once the bottleneck is fixed, we optimize and scale what works. Predictable growth, not guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card reveal">
+        <h2>Ready to Implement This?</h2>
+        <p class="cta-sub">Everything above was built specifically for HUB Appliances. Imagine what we could do working together.</p>
+        <a href="https://calendly.com/henryque-zytrom/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a 30-Minute Call</a>
+        <p class="cta-note">No commitment. No sales pitch. Just a conversation about growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">ZYTROM</div>
+      <div class="footer-tagline">Done-for-you growth systems</div>
+      <p>Prepared specifically for HUB Appliances. April 2026.</p>
+      <p><a href="https://calendly.com/henryque-zytrom/30min" target="_blank" rel="noopener">Schedule a call</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Accordion toggle
+    function toggleAccordion(header) {
+      var item = header.parentElement;
+      var body = item.querySelector('.accordion-body');
+      var isActive = item.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(function(el) {
+        el.classList.remove('active');
+        el.querySelector('.accordion-body').style.maxHeight = null;
+      });
+
+      // Open clicked (if it was closed)
+      if (!isActive) {
+        item.classList.add('active');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    }
+
+    // Scroll reveal with IntersectionObserver
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Count-up animation for stats
+    (function() {
+      var animated = false;
+
+      function animateCountUp() {
+        if (animated) return;
+        animated = true;
+
+        document.querySelectorAll('.stat-number[data-target]').forEach(function(el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          var duration = 1800;
+          var startTime = null;
+
+          function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+          }
+
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var easedProgress = easeOutCubic(progress);
+            var current = Math.round(easedProgress * target);
+            el.textContent = current;
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              el.textContent = target;
+            }
+          }
+
+          requestAnimationFrame(step);
+        });
+      }
+
+      var statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCountUp();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      var statsSection = document.querySelector('.stats-bar');
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+    })();
+  </script>
+
+</body>
+</html>

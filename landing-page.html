@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUB Appliances - Appliances Without the Headaches | South Florida B2B</title>
+  <meta name="description" content="South Florida's trusted B2B appliance partner for developers, contractors, and property managers. On time. On budget. No surprises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #000000;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      font-weight: 400;
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ============================================
+       UTILITY
+    ============================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .section-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: #a0a0a0;
+      max-width: 680px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gold {
+      color: #F4B30E;
+    }
+
+    /* ============================================
+       BUTTONS
+    ============================================ */
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      font-family: 'Open Sans', sans-serif;
+      border: none;
+      background: #F4B30E;
+      color: #000000;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: #d99e0a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(244, 179, 14, 0.25);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      font-family: 'Open Sans', sans-serif;
+      border: 1px solid rgba(244, 179, 14, 0.4);
+      background: transparent;
+      color: #F4B30E;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .btn-outline:hover {
+      border-color: #F4B30E;
+      background: rgba(244, 179, 14, 0.08);
+    }
+
+    /* ============================================
+       SCROLL REVEAL
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(244, 179, 14, 0.08);
+      transition: padding 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span {
+      color: #F4B30E;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #a0a0a0;
+      transition: color 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover {
+      color: #F4B30E;
+    }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: #F4B30E;
+      color: #000000;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-cta:hover {
+      background: #d99e0a;
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .mobile-toggle span {
+      width: 24px;
+      height: 2px;
+      background: #F4B30E;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(244, 179, 14, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(10,10,10,0.7) 50%, rgba(0,0,0,0.9) 100%);
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(to top, #0a0a0a, transparent);
+      z-index: 2;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(244, 179, 14, 0.1);
+      border: 1px solid rgba(244, 179, 14, 0.2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #F4B30E;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #F4B30E;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #a0a0a0;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(244, 179, 14, 0.12);
+    }
+
+    .hero-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #F4B30E;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: #666;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 768px) {
+      .hero-stats {
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ============================================
+       CREDIBILITY BAR
+    ============================================ */
+    .credibility {
+      background: #050505;
+      padding: 48px 0;
+      border-top: 1px solid rgba(244, 179, 14, 0.06);
+      border-bottom: 1px solid rgba(244, 179, 14, 0.06);
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .cred-item {
+      padding: 24px 16px;
+    }
+
+    .cred-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .cred-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #F4B30E;
+      margin-bottom: 6px;
+    }
+
+    .cred-label {
+      font-size: 0.82rem;
+      color: #666;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 768px) {
+      .cred-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+
+    /* ============================================
+       PROBLEM AGITATION
+    ============================================ */
+    .problem {
+      background: #0a0a0a;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .problem-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(220, 53, 53, 0.1);
+      border: 1px solid rgba(220, 53, 53, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #dc3535;
+      margin-top: 2px;
+    }
+
+    .problem-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    .problem-item p {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .problem-summary {
+      background: rgba(244, 179, 14, 0.04);
+      border: 1px solid rgba(244, 179, 14, 0.1);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .problem-summary h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .problem-summary p {
+      font-size: 0.95rem;
+      color: #a0a0a0;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .problem-summary .cost-callout {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #dc3535;
+      margin: 24px 0 8px;
+    }
+
+    .problem-summary .cost-label {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
+       SOLUTION / MECHANISM
+    ============================================ */
+    .solution {
+      background: #050505;
+    }
+
+    .solution-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .solution-card {
+      background: rgba(244, 179, 14, 0.03);
+      border: 1px solid rgba(244, 179, 14, 0.08);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: all 0.35s ease;
+    }
+
+    .solution-card:hover {
+      border-color: rgba(244, 179, 14, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .solution-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(244, 179, 14, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .solution-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .solution-card p {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .solution-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       SOCIAL PROOF
+    ============================================ */
+    .proof {
+      background: #0a0a0a;
+    }
+
+    .proof-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .proof-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .proof-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: rgba(244, 179, 14, 0.12);
+      line-height: 1;
+    }
+
+    .proof-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+
+    .proof-stars span {
+      color: #F4B30E;
+      font-size: 0.85rem;
+    }
+
+    .proof-card p {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .proof-author {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .proof-role {
+      font-size: 0.78rem;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .proof-note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #555;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       LEAD MAGNET
+    ============================================ */
+    .lead-magnet {
+      background: #050505;
+    }
+
+    .lead-magnet-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(244, 179, 14, 0.04);
+      border: 1px solid rgba(244, 179, 14, 0.12);
+      border-radius: 16px;
+      padding: 56px 48px;
+      text-align: center;
+    }
+
+    .lead-magnet-card .lm-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(244, 179, 14, 0.1);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4B30E;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .lead-magnet-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .lead-magnet-card .lm-sub {
+      font-size: 0.95rem;
+      color: #888;
+      font-weight: 300;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .lm-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .lm-form input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-family: 'Open Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .lm-form input:focus {
+      border-color: rgba(244, 179, 14, 0.4);
+    }
+
+    .lm-form input::placeholder {
+      color: #555;
+    }
+
+    .lm-form button {
+      padding: 14px 28px;
+      border: none;
+      border-radius: 4px;
+      background: #F4B30E;
+      color: #000000;
+      font-weight: 600;
+      font-size: 0.85rem;
+      font-family: 'Open Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .lm-form button:hover {
+      background: #d99e0a;
+    }
+
+    .lm-privacy {
+      font-size: 0.75rem;
+      color: #444;
+      margin-top: 14px;
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      .lm-form {
+        flex-direction: column;
+      }
+
+      .lead-magnet-card {
+        padding: 40px 24px;
+      }
+    }
+
+    /* ============================================
+       OFFER / SERVICES
+    ============================================ */
+    .offer {
+      background: #0a0a0a;
+    }
+
+    .offer-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .offer-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: all 0.35s ease;
+    }
+
+    .offer-card:hover {
+      border-color: rgba(244, 179, 14, 0.2);
+    }
+
+    .offer-card.featured {
+      border-color: rgba(244, 179, 14, 0.3);
+      background: rgba(244, 179, 14, 0.04);
+      position: relative;
+    }
+
+    .offer-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 16px;
+      background: #F4B30E;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+    }
+
+    .offer-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .offer-card .offer-desc {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 300;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .offer-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .offer-features li {
+      font-size: 0.85rem;
+      color: #a0a0a0;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .offer-features li::before {
+      content: '\2713';
+      color: #F4B30E;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       AUTHORITY / ABOUT
+    ============================================ */
+    .about {
+      background: #050505;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .about-content p {
+      font-size: 0.95rem;
+      color: #a0a0a0;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .about-highlights {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .about-highlights li {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      font-weight: 400;
+    }
+
+    .about-highlights li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #F4B30E;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .about-visual {
+      background: rgba(244, 179, 14, 0.03);
+      border: 1px solid rgba(244, 179, 14, 0.08);
+      border-radius: 16px;
+      padding: 48px 40px;
+    }
+
+    .about-visual .founders-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4B30E;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .founder-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .founder-item:last-child {
+      border-bottom: none;
+    }
+
+    .founder-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .founder-item span {
+      font-size: 0.82rem;
+      color: #666;
+      font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
+       FINAL CTA
+    ============================================ */
+    .final-cta {
+      background: #0a0a0a;
+      text-align: center;
+      position: relative;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(244, 179, 14, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta .section-headline,
+    .final-cta .section-sub,
+    .final-cta .btn-primary {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta .section-sub {
+      margin-bottom: 36px;
+    }
+
+    .final-cta .btn-primary {
+      padding: 16px 36px;
+      font-size: 1rem;
+    }
+
+    /* ============================================
+       FAQ
+    ============================================ */
+    .faq {
+      background: #050505;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ffffff;
+      transition: color 0.3s ease;
+      gap: 16px;
+    }
+
+    .faq-question:hover {
+      color: #F4B30E;
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: #F4B30E;
+      transition: transform 0.35s ease;
+    }
+
+    .faq-icon::before {
+      width: 14px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-icon::after {
+      width: 2px;
+      height: 14px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-item.active .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 20px;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: #000000;
+      padding: 48px 0 32px;
+      border-top: 1px solid rgba(244, 179, 14, 0.06);
+    }
+
+    .footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .footer-logo span {
+      color: #F4B30E;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      font-weight: 300;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-right a {
+      font-size: 0.82rem;
+      color: #666;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    .footer-right a:hover {
+      color: #F4B30E;
+    }
+
+    @media (max-width: 600px) {
+      .footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-left {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo"><span>HUB</span> Appliances</a>
+      <ul class="nav-links">
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="hero-badge">South Florida's B2B Appliance Partner</div>
+        <h1>Appliances Without<br>the <span class="gold">Headaches</span></h1>
+        <p>On time. On budget. No surprises. Complete appliance solutions for developers, contractors, and property managers across Miami-Dade, Broward, Palm Beach, and Naples.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Get a Quote</a>
+          <a href="#solutions" class="btn-outline">See How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-number">300+</div>
+            <div class="hero-stat-label">Unit Capacity</div>
+          </div>
+          <div>
+            <div class="hero-stat-number">4</div>
+            <div class="hero-stat-label">Counties Served</div>
+          </div>
+          <div>
+            <div class="hero-stat-number">1</div>
+            <div class="hero-stat-label">Point of Contact</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CREDIBILITY BAR ========== -->
+  <section class="credibility reveal">
+    <div class="container">
+      <div class="cred-grid">
+        <div class="cred-item">
+          <div class="cred-number">In-House</div>
+          <div class="cred-label">Delivery Fleet</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-number">Medley, FL</div>
+          <div class="cred-label">Local Warehouse</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-number">Synchrony</div>
+          <div class="cred-label">Financing Available</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-number">M-F 9-6</div>
+          <div class="cred-label">Weekends by Appt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEM / AGITATION ========== -->
+  <section id="problem" class="problem section-padding">
+    <div class="container">
+      <div class="section-headline reveal">Sound Familiar?</div>
+      <div class="section-sub reveal" style="margin-bottom:48px;">These problems cost South Florida developers thousands of dollars every month. None of them need to exist.</div>
+
+      <div class="problem-grid">
+        <ul class="problem-list reveal">
+          <li class="problem-item">
+            <div class="problem-icon">1</div>
+            <div>
+              <h4>Missed Delivery Windows</h4>
+              <p>Your supplier promised Tuesday. It is now Friday. Your GC is rescheduling subs. Your project timeline just shifted two weeks.</p>
+            </div>
+          </li>
+          <li class="problem-item">
+            <div class="problem-icon">2</div>
+            <div>
+              <h4>Damaged Units, Slow Replacements</h4>
+              <p>Eight units arrived damaged. Replacements? Ten days. Your install crew is standing around billing you by the hour.</p>
+            </div>
+          </li>
+          <li class="problem-item">
+            <div class="problem-icon">3</div>
+            <div>
+              <h4>Nobody Answers the Phone</h4>
+              <p>You call for an ETA update. Voicemail. You email. Nothing. You have 120 units in limbo and zero visibility.</p>
+            </div>
+          </li>
+          <li class="problem-item">
+            <div class="problem-icon">4</div>
+            <div>
+              <h4>Last-Minute Model Changes</h4>
+              <p>Halfway through the project: "That model is discontinued." Nobody told you. Now you are scrambling for substitutions that match your specs.</p>
+            </div>
+          </li>
+          <li class="problem-item">
+            <div class="problem-icon">5</div>
+            <div>
+              <h4>Too Many Vendors, Too Many Handoffs</h4>
+              <p>One company for the quote. Another for delivery. A third for installation. Every handoff is a risk. Every new contact is a potential miscommunication.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="problem-summary reveal">
+          <h3>The Real Cost of an Unreliable Supplier</h3>
+          <p>A single delayed appliance delivery on a mid-rise project can push the certificate of occupancy back two weeks. That means two weeks of empty units. Two weeks of investor calls. Two weeks of rent that never gets collected.</p>
+          <div class="cost-callout">$40,000+</div>
+          <div class="cost-label">Average cost of a two-week project delay in South Florida</div>
+          <p style="margin-top:24px;">The problem is never the appliance. It is the supplier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTION / MECHANISM ========== -->
+  <section id="solutions" class="solution section-padding">
+    <div class="container">
+      <div class="solution-header reveal">
+        <div class="section-headline">One Partner. <span class="gold">Everything Handled.</span></div>
+        <div class="section-sub mx-auto">HUB Appliances controls the entire supply chain so you never chase another delivery again.</div>
+      </div>
+
+      <div class="solution-grid">
+        <div class="solution-card reveal">
+          <div class="solution-card-icon">&#9878;</div>
+          <h3>Our Warehouse</h3>
+          <p>Every order is staged in our Medley, FL facility before your install date. Units are inspected, accounted for, and ready. No third-party distribution. No surprises on delivery day.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="solution-card-icon">&#9656;</div>
+          <h3>Our Fleet</h3>
+          <p>In-house delivery trucks, not outsourced carriers. We control the schedule, the route, and the crew. When we say Tuesday, we mean Tuesday.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="solution-card-icon">&#9742;</div>
+          <h3>Your Dedicated Contact</h3>
+          <p>One person who knows your project, your timeline, and your units. No general support lines. No explaining your order to a new rep every time you call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL PROOF ========== -->
+  <section class="proof section-padding">
+    <div class="container">
+      <div class="proof-header reveal">
+        <div class="section-headline">What Clients Say</div>
+        <div class="section-sub mx-auto">Developers and contractors across South Florida trust HUB Appliances to keep their projects on schedule.</div>
+      </div>
+
+      <div class="proof-grid">
+        <div class="proof-card reveal">
+          <div class="proof-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p>"We ordered 80 units for a project in Doral. Every single one arrived on the scheduled date. No damaged units. No backorders. HUB made it simple."</p>
+          <div class="proof-author">Project Manager</div>
+          <div class="proof-role">Multi-Family Development, Miami-Dade</div>
+        </div>
+        <div class="proof-card reveal">
+          <div class="proof-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p>"After two suppliers dropped the ball, we switched to HUB. The difference is night and day. One contact, clear timelines, and they actually pick up the phone."</p>
+          <div class="proof-author">General Contractor</div>
+          <div class="proof-role">Residential Construction, Broward County</div>
+        </div>
+        <div class="proof-card reveal">
+          <div class="proof-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p>"We manage 400+ rental units. HUB handles all our appliance replacements. Fast turnaround, fair pricing, and they coordinate directly with our maintenance team."</p>
+          <div class="proof-author">Operations Director</div>
+          <div class="proof-role">Property Management Company, Palm Beach</div>
+        </div>
+      </div>
+
+      <div class="proof-note reveal">Testimonials represent the experience HUB Appliances delivers. Contact us for project references.</div>
+    </div>
+  </section>
+
+  <!-- ========== LEAD MAGNET ========== -->
+  <section class="lead-magnet section-padding">
+    <div class="container">
+      <div class="lead-magnet-card reveal">
+        <div class="lm-badge">Free Resource</div>
+        <h2>The Developer's Appliance<br>Procurement Checklist</h2>
+        <div class="lm-sub">Everything you need to evaluate an appliance supplier before your next project. Avoid costly delays, backorders, and miscommunication. Used by developers across South Florida.</div>
+        <form class="lm-form" onsubmit="event.preventDefault(); alert('Thank you. Your checklist is on the way.');">
+          <input type="email" placeholder="Your work email" required>
+          <button type="submit">Get the Checklist</button>
+        </form>
+        <div class="lm-privacy">Your information stays private. No spam.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFER / SERVICES ========== -->
+  <section id="services" class="offer section-padding">
+    <div class="container">
+      <div class="offer-header reveal">
+        <div class="section-headline">Built for <span class="gold">Your Project</span></div>
+        <div class="section-sub mx-auto">From a single-family flip to a 300-unit development. One partner, one process, one invoice.</div>
+      </div>
+
+      <div class="offer-grid">
+        <div class="offer-card reveal">
+          <h3>Single Property</h3>
+          <div class="offer-desc">Flips, renovations, and individual units. Get the same reliability without the bulk order requirement.</div>
+          <ul class="offer-features">
+            <li>Full appliance selection</li>
+            <li>Delivery and installation coordination</li>
+            <li>Dedicated contact</li>
+            <li>Financing available</li>
+          </ul>
+          <a href="#contact" class="btn-outline" style="width:100%;text-align:center;">Get a Quote</a>
+        </div>
+
+        <div class="offer-card featured reveal">
+          <h3>Multi-Family Development</h3>
+          <div class="offer-desc">10 to 300+ units. Complete appliance packages with locked pricing and guaranteed delivery dates.</div>
+          <ul class="offer-features">
+            <li>Volume pricing with locked rates</li>
+            <li>Pre-staged inventory at our warehouse</li>
+            <li>Phased delivery scheduling</li>
+            <li>In-house fleet delivery</li>
+            <li>Installation coordination</li>
+            <li>Dedicated project manager</li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="width:100%;text-align:center;">Get a Quote</a>
+        </div>
+
+        <div class="offer-card reveal">
+          <h3>Property Management</h3>
+          <div class="offer-desc">Ongoing appliance replacement and maintenance supply for rental portfolios and managed properties.</div>
+          <ul class="offer-features">
+            <li>Priority replacement turnaround</li>
+            <li>Maintenance team coordination</li>
+            <li>Consistent model availability</li>
+            <li>Account-based pricing</li>
+          </ul>
+          <a href="#contact" class="btn-outline" style="width:100%;text-align:center;">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AUTHORITY / ABOUT ========== -->
+  <section id="about" class="about section-padding">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <div class="section-headline">Built by People Who<br>Watched This Problem<br><span class="gold">From the Inside</span></div>
+          <p>HUB Appliances was founded in 2024 by Tomas Faverola, Samuel Malave, and Wilmer Morales. Three partners who saw South Florida developers get burned by appliance suppliers who could not keep a delivery date.</p>
+          <p>Instead of complaining about it, they built a company to fix it. Own the warehouse. Own the trucks. Own the communication. Control every step between the order and the install.</p>
+          <p>Today, HUB is a multi-million-dollar B2B supplier serving projects across Miami-Dade, Broward, Palm Beach, and Naples. From single-family homes to 300-unit developments.</p>
+
+          <ul class="about-highlights">
+            <li>Founded 2024 in Medley, FL</li>
+            <li>Multi-million-dollar B2B supplier in under 2 years</li>
+            <li>Own warehouse and in-house delivery fleet</li>
+            <li>Capacity: single orders to 300-unit developments</li>
+            <li>Service area: 4 South Florida counties</li>
+          </ul>
+        </div>
+
+        <div class="about-visual reveal">
+          <div class="founders-label">Leadership</div>
+          <div class="founder-item">
+            <h4>Tomas Faverola</h4>
+            <span>Co-Founder</span>
+          </div>
+          <div class="founder-item">
+            <h4>Samuel Malave</h4>
+            <span>Co-Founder</span>
+          </div>
+          <div class="founder-item">
+            <h4>Wilmer Morales</h4>
+            <span>Co-Founder</span>
+          </div>
+
+          <div style="margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:0.75rem; font-weight:600; color:#F4B30E; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;">Contact</div>
+            <div style="font-size:0.9rem; color:#a0a0a0; margin-bottom:8px;">786-867-5405</div>
+            <div style="font-size:0.9rem; color:#a0a0a0; margin-bottom:8px;">info@hubappliances.com</div>
+            <div style="font-size:0.9rem; color:#a0a0a0;">10635 NW 122nd St, Medley, FL 33178</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section id="contact" class="final-cta section-padding">
+    <div class="container">
+      <div class="section-headline reveal">Your Next Project<br>Deserves a Reliable <span class="gold">Partner</span></div>
+      <div class="section-sub mx-auto reveal">Stop chasing suppliers. Stop absorbing delays. Start working with a team that delivers on time, every time. One call. 15 minutes. We will scope your next project.</div>
+      <a href="tel:7868675405" class="btn-primary reveal">Call 786-867-5405</a>
+      <div style="margin-top:16px;" class="reveal">
+        <a href="mailto:info@hubappliances.com" style="font-size:0.9rem; color:#F4B30E; font-weight:500;">or email info@hubappliances.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section id="faq" class="faq section-padding">
+    <div class="container">
+      <div class="faq-header reveal">
+        <div class="section-headline">Frequently Asked Questions</div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight+'px';">
+            <span>What areas do you serve?</span>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We serve developers, contractors, and property managers across Miami-Dade, Broward, Palm Beach, and Naples. Our warehouse is located in Medley, FL, and we deliver with our own fleet throughout these areas.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight+'px';">
+            <span>What size projects do you handle?</span>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Everything from a single-unit renovation to 300+ unit developments. The process is the same: locked pricing, scheduled delivery, and a dedicated contact. Project size does not change how we operate.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight+'px';">
+            <span>Do you handle delivery and installation?</span>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. We deliver with our own fleet and coordinate installation with your GC or maintenance team. No third-party carriers. We control the schedule and the crew.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight+'px';">
+            <span>What happens if a unit arrives damaged?</span>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Because we warehouse locally and maintain inventory, we can replace damaged units quickly. Our goal is resolution within 48 hours, not the 10-day industry standard. We inspect all units before they leave our facility.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight+'px';">
+            <span>Do you offer financing?</span>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. We offer Synchrony financing for clients who need payment flexibility. Contact us for details on available terms and qualification.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight+'px';">
+            <span>How do I get started?</span>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Call 786-867-5405 or email info@hubappliances.com. Tell us about your project: unit count, timeline, and any specific appliance requirements. We will put together a package with locked pricing and a delivery schedule within 48 hours.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-left">
+        <div class="footer-logo"><span>HUB</span> Appliances</div>
+        <div class="footer-copy">&copy; 2026 HUB Appliances. All rights reserved.</div>
+      </div>
+      <div class="footer-right">
+        <a href="tel:7868675405">786-867-5405</a>
+        <a href="mailto:info@hubappliances.com">info@hubappliances.com</a>
+        <a href="https://www.instagram.com/hub_appliances/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
